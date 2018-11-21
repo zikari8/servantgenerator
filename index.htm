@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="fabric.min.js"></script>
+  <script src="jquery-3.1.1.min.js"></script>
+  <script src="cropper.min.js"></script>
+  <script src="jquery.popupoverlay.js"></script>
+  <script src="servantgenerator.js"></script>
+  <link rel="stylesheet" href="cropper.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Fate Servant Generator</title>
+</head>
+<body>
+  <div class="container">
+    <div class="column">
+      <fieldset id="class">
+        <ul>
+          <li>
+            <input type="radio" id="saber" value="saber" name="class">
+            <label for="saber"><img src="images/classicons/saber.png" alt="Saber"></label>
+          </li>
+          <li>
+            <input type="radio" id="archer" value="archer" name="class">
+            <label for="archer"><img src="images/classicons/archer.png" alt="Archer"></label>
+          </li>
+          <li>
+            <input type="radio" id="lancer" value="lancer" name="class">
+            <label for="lancer"><img src="images/classicons/lancer.png" alt="Lancer"></label>
+          </li>
+          <li>
+            <input type="radio" id="caster" value="caster" name="class">
+            <label for="caster"><img src="images/classicons/caster.png" alt="Caster"></label>
+          </li>
+          <li>
+            <input type="radio" id="rider" value="rider" name="class">
+            <label for="rider"><img src="images/classicons/rider.png" alt="Rider"></label>
+          </li>
+          <li>
+            <input type="radio" id="assassin" value="assassin" name="class">
+            <label for="assassin"><img src="images/classicons/assassin.png" alt="Assassin"></label>
+          </li>
+          <br>
+          <li>
+            <input type="radio" id="berserker" value="berserker" name="class">
+            <label for="berserker"><img src="images/classicons/berserker.png" alt="Berserker"></label>
+          </li>
+          <li>
+            <input type="radio" id="ruler" value="ruler" name="class">
+            <label for="ruler"><img src="images/classicons/ruler.png" alt="Ruler"></label>
+          </li>
+          <li>
+            <input type="radio" id="shielder" value="shielder" name="class">
+            <label for="shielder"><img src="images/classicons/shielder.png" alt="Shielder"></label>
+          </li>
+          <li>
+            <input type="radio" id="avenger" value="avenger" name="class">
+            <label for="avenger"><img src="images/classicons/avenger.png" alt="Avenger"></label>
+          </li>
+          <li>
+            <input type="radio" id="alterego" value="alterego" name="class">
+            <label for="alterego"><img src="images/classicons/alterego.png" alt="Alterego"></label>
+          </li>
+          <li>
+            <input type="radio" id="mooncancer" value="mooncancer" name="class">
+            <label for="mooncancer"><img src="images/classicons/mooncancer.png" alt="Mooncacer"></label>
+          </li>
+        </ul>
+      </fieldset>
+      <div class="flex-row">
+        <div>
+          <div class="formcolumn">
+            <label>Master Name:</label>
+            <input id="name" type="text">
+            <br>
+            <label>Servant Name:</label>
+            <input id="servant" type="text">
+            <br>
+            <label>Height/Weight:</label>
+            <input id="heightweight" type="text">
+            <br>
+            <label>Alignment:</label>
+            <select id="alignment">
+              <option></option>
+              <option>Lawful Good</option>
+              <option>Neutral Good</option>
+              <option>Chaotic Good</option>
+              <option>Lawful Neutral</option>
+              <option>Neutral</option>
+              <option>Chaotic Neutral</option>
+              <option>Lawful Evil</option>
+              <option>Neutral Evil</option>
+              <option>Chaotic Evil</option>
+            </select>
+            <br>
+            <fieldset id="sex">
+              Sex:
+              <label for="male">
+                <input type="radio" id="male" value="male" name="sex">
+                Male
+              </label>
+              <label for="female">
+                <input type="radio" id="female" value="female" name="sex">
+                Female
+              </label>
+              <label for="other">
+                <input type="radio" id="other" value="other" name="sex">
+                Other
+              </label>
+            </fieldset>
+            <div class="filebutton">
+              <input type="file" id="servantpicture">
+              <label for="servantpicture">Servant Picture</label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="formcolumn" style="width: 30%;">
+            <fieldset id="ability">
+                Class Skills:
+                <label for="one">
+                  <input type="radio" id="one" value="one" name="ability" onclick="hideFunction1()">
+                  1 Skill 
+                </label>
+                <label for="two">
+                  <input type="radio" id="two" value="two" name="ability" onclick="hideFunction2()">
+                  2 Skills
+                </label>
+            </fieldset>
+            <div class="flex-row">
+                <div>
+                  <div class="formcolumn">
+                    <label>Strength:</label>
+                    <select id="strength">
+                      <option></option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D</option>
+                      <option>E</option>
+                      <option>EX</option>
+                    </select>
+                    <label>Endurance:</label>
+                    <select id="endurance">
+                      <option></option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D</option>
+                      <option>E</option>
+                      <option>EX</option>
+                    </select>
+                    <label>Agility:</label>
+                    <select id="agility">
+                      <option></option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D</option>
+                      <option>E</option>
+                      <option>EX</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <div class="formcolumn">
+                    <label>Magic:</label>
+                    <select id="magic">
+                      <option></option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D</option>
+                      <option>E</option>
+                      <option>EX</option>
+                    </select>
+                    <label>Luck:</label>
+                    <select id="luck">
+                      <option></option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D</option>
+                      <option>E</option>
+                      <option>EX</option>
+                    </select>
+                    <label>NP:</label>
+                    <select id="np">
+                      <option></option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>C</option>
+                      <option>D</option>
+                      <option>E</option>
+                      <option>EX</option>
+                    </select>
+                  </div>
+                </div>
+            </div>
+            <br>
+            <label>Sidebar:</label>
+            <select id="sidebar">
+              <option></option>
+              <option>Default</option>
+              <option>Ruler</option>
+              <option>Shielder</option>
+              <option>All</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="flex-row">
+          <div id="textbox0" style="display:none;">
+            <label>Skill Description:</label>
+            <div>
+              <br>
+              <textarea id="description0" placeholder="Skill Description"></textarea>
+            </div>
+          </div>
+        </div>
+      <div class="flex-row">
+        <div id="textbox1" style="display:none;">
+          <label>Skill Description #1:</label>
+          <div>
+            <br>
+            <textarea id="description1" placeholder="Skill Description"></textarea>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="flex-row">
+        <div id="textbox2" style="display:none;">
+          <label>Skill Description #2:</label>
+          <div>
+            <br>
+            <textarea id="description2" placeholder="Skill Description"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <canvas id="canvas"></canvas>
+    </div>
+  </div>
+  <div id="imagecropmodal">
+    <img id="cropper">
+    <button id="crop">Crop</button>
+  </div>
+
+  <script>
+  function hideFunction1() {
+    var z = document.getElementById("textbox0");
+    var x = document.getElementById("textbox1");
+    var y = document.getElementById("textbox2");
+    z.style.display = "block";
+    x.style.display = "none";
+    y.style.display = "none";
+  }
+
+  function hideFunction2() {
+    var x = document.getElementById("textbox1");
+    var y = document.getElementById("textbox2");
+    var z = document.getElementById("textbox0");
+    x.style.display = "block";
+    y.style.display = "block";
+    z.style.display = "none";
+  }
+
+  </script>
+</body>
+</html>
